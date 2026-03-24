@@ -4,7 +4,7 @@ import time
 from datetime import datetime, timedelta
 
 # ВСТАВЬТЕ ВАШ НОВЫЙ ТОКЕН
-TOKEN = '8675191350:AAFUqzm2sfl-u-kTfYTYBrLKpMJejPinV5M'
+TOKEN = '8675191350:AAEkUHBMxP7QxIlaQaT22KNM1usJtIDl-CI'
 ADMIN_GROUP_ID = -5172375951
 
 bot = telebot.TeleBot(TOKEN)
