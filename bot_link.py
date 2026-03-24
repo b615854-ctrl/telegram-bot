@@ -16,7 +16,7 @@ def send_link(message):
     bot.reply_to(
         message,
         f"👋 Привет, {user_name}!\n\n"
-        f"Вот ссылка на наш закрытый канал:\n"
+        f"Залетай в наш магазин:\n"
         f"{CHANNEL_LINK}\n\n"
         f"Нажмите на ссылку, чтобы присоединиться 🔗"
     )
