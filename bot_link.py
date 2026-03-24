@@ -6,7 +6,7 @@ import time
 TOKEN = '8681961770:AAFuVjp8ynlIZyJ4iU6uaJbbIljyAY61hLg'
 
 # Ссылка на закрытый канал
-CHANNEL_LINK = 'https://t.me/+63uqWdYMhZJjNTYy'
+CHANNEL_LINK = 'https://t.me/+Qp11MrinOD9iMjli'
 
 bot = telebot.TeleBot(TOKEN)
 
