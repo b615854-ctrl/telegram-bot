@@ -3,7 +3,7 @@ from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import time
 import os
 
-TOKEN = os.environ.get('TOKEN')
+TOKEN = '8675191350:AAEXhVU11_i_IFHI-4DPVp1-8SAQk510r7U'
 ADMIN_GROUP_ID = int(os.environ.get('ADMIN_GROUP_ID', -5172375951))
 
 bot = telebot.TeleBot(TOKEN)
