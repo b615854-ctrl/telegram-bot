@@ -20,7 +20,7 @@ threading.Thread(target=run_web, daemon=True).start()
 
 # ========== НАСТРОЙКИ БОТА ==========
 TOKEN = '8681961770:AAFuVjp8ynlIZyJ4iU6uaJbbIljyAY61hLg'  # ⚠️ ВСТАВЬ СВОЙ ТОКЕН
-CHANNEL_LINK = 'https://t.me/+63uqWdYMhZJjNTYy'
+CHANNEL_LINK = 'https://t.me/+Qp11MrinOD9iMjli'
 
 bot = telebot.TeleBot(TOKEN)
 # ===================================
