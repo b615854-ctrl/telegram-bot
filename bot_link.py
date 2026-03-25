@@ -1,14 +1,29 @@
-import telebot
+import threading
+from flask import Flask
 import os
+import telebot
 import time
 
-# Токен второго бота (получите у @BotFather)
-TOKEN = '8681961770:AAFuVjp8ynlIZyJ4iU6uaJbbIljyAY61hLg'
+# ========== ВЕБ-СЕРВЕР ДЛЯ RENDER (ОБЯЗАТЕЛЬНО) ==========
+app = Flask(__name__)
 
-# Ссылка на закрытый канал
-CHANNEL_LINK = 'https://t.me/+Qp11MrinOD9iMjli'
+@app.route('/')
+def health():
+    return "✅ Бот со ссылкой работает", 200
+
+def run_web():
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
+
+threading.Thread(target=run_web, daemon=True).start()
+# ========================================================
+
+# ========== НАСТРОЙКИ БОТА ==========
+TOKEN = '8681961770:AAFuVjp8ynlIZyJ4iU6uaJbbIljyAY61hLg'  # ⚠️ ВСТАВЬ СВОЙ ТОКЕН
+CHANNEL_LINK = 'https://t.me/+63uqWdYMhZJjNTYy'
 
 bot = telebot.TeleBot(TOKEN)
+# ===================================
 
 @bot.message_handler(commands=['start'])
 def send_link(message):
@@ -16,26 +31,21 @@ def send_link(message):
     bot.reply_to(
         message,
         f"👋 Привет, {user_name}!\n\n"
-        f"Залетай в наш магазин:\n"
+        f"🔗 Вот ссылка на наш закрытый канал:\n"
         f"{CHANNEL_LINK}\n\n"
-        f"Нажмите на ссылку, чтобы присоединиться 🔗"
+        f"Нажми, чтобы присоединиться ✅"
     )
 
-# Обработка обычных сообщений (просто напоминание)
 @bot.message_handler(func=lambda m: True)
-def echo_all(message):
-    bot.reply_to(
-        message,
-        "Отправьте /start, чтобы получить ссылку на канал 📢"
-    )
+def help_message(message):
+    bot.reply_to(message, "📢 Отправьте /start, чтобы получить ссылку на канал")
 
 print("🤖 БОТ-ССЫЛКА ЗАПУЩЕН!")
-print(f"Бот: @{bot.get_me().username}")
-print(f"Канал: {CHANNEL_LINK}")
+print(f"🔗 Канал: {CHANNEL_LINK}")
 
 while True:
     try:
         bot.infinity_polling(timeout=60)
     except Exception as e:
-        print(f"Ошибка: {e}")
+        print(f"⚠️ Ошибка: {e}")
         time.sleep(15)
